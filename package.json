@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass -w src/resources/scss -o src/public/css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -29,8 +30,8 @@
     "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --write"
   },
   "husky": {
-    "hooks":{
-      "pre-commit":"lint-staged"
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
   "dependencies": {
