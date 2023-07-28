@@ -6,7 +6,7 @@
   "scripts": {
     "b":"lint-staged",
     "start": "nodemon --inspect src/index.js",
-    "watch": "node-sass -w src/resources/scss -o src/public/css",
+    "watch": "sass -w src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "create-hook": "husky add .husky/pre-commit \"lint-staged\""
@@ -45,7 +45,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "morgan": "^1.10.0",
-    "node-sass": "^9.0.0",
+    "sass": "^1.64.1",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.0"
   }
