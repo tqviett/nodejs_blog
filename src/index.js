@@ -29,10 +29,10 @@ app.engine(
   }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 route(app);
 //127.0.0.1
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`VIETBLOG PORT: http://localhost:${port}`);
 });
