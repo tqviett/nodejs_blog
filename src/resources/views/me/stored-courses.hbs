@@ -1,16 +1,28 @@
 <div class="mt-4">
-  <div>
-    <h3>khóa học của tôi</h3>
-    <a href="/me/trash/courses">Thùng rác</a>
+  <h3>KHÓA HỌC CỦA TÔI</h3>
+  <div class="list d-flex">
+    <div name="recycle">
+      {{#if deletedCount}}
+      <a href="/me/trash/courses" >
+        <button type="button" class="btn btn-secondary">
+          <i class="fas fa-trash-alt"></i> Thùng rác ({{deletedCount}})
+        </button>
+      </a>
+      {{/if}}
+    </div>
+    <div name="createCourse" class="ms-auto">
+      <a href="/courses/create" >
+        <button type="button" class="btn btn-success">Đăng khóa học mới</button>
+      </a>
+    </div>
   </div>
     <table class="table mt-4">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Courses Name</th>
-          <th scope="col">Level</th>
-          <th scope="col">CreatedAt</th>
           <th scope="col"></th>
+          <th scope="col">TÊN KHÓA HỌC</th>
+          <th scope="col">CẤP ĐỘ</th>
+          <th scope="col" colspan="2">NGÀY TẠO</th>
         </tr>
       </thead>
       <tbody>
@@ -21,8 +33,8 @@
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href="/courses/{{this.slug}}/edit" class="btn btn-outline-primary">Edit</a>
-            <a href="" name="delete-confirm" class="btn btn-outline-dark" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteCourseModel">Delete</a>
+            <a href="/courses/{{this.slug}}/edit" class="btn btn-outline-primary">Chỉnh sửa</a>
+            <a href="" name="delete-confirm" class="btn btn-outline-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteCourseModel">Xóa</a>
             {{!-- confirm delete --}}
             <!-- Modal -->
             <div class="modal fade" id="deleteCourseModel" tabindex="-1" aria-labelledby="deleteCourseModelLabel" aria-hidden="true">
@@ -36,8 +48,8 @@
                       <b>{{this.name}}</b>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-outline-danger" id="confirmDeleteBtn">Agree</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Đồng ý</button>
                   </div>
                 </div>
               </div>
