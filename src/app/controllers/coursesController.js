@@ -22,7 +22,7 @@ class SiteController {
     const course = new Course(formData);
     course
       .save()
-      .then(() => res.redirect('/'))
+      .then(() => res.redirect('/me/stored/courses'))
       .catch((error) => {});
   }
   //[GET] /courses:id/edit
@@ -44,9 +44,22 @@ class SiteController {
 
   //[DELETE] /courses:id
   delete(req, res, next) {
-    // Course.deleteOne({ _id: req.params.id })
-    //  .then(() => res.redirect('back')) //nếu thành công, sau đó thực thi res...
-    //  .catch(next);//nếu thất bại, sẽ bắt lỗi....
+    Course.delete({ _id: req.params.id })
+      .then(() => res.redirect('back')) //nếu thành công, sau đó thực thi res...
+      .catch(next); //nếu thất bại, sẽ bắt lỗi....
+  }
+  //[DELETE] /courses:id/force
+  forceDelete(req, res, next) {
+    Course.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect('back')) //nếu thành công, sau đó thực thi res...
+      .catch(next); //nếu thất bại, sẽ bắt lỗi....
+  }
+
+  //[PATCH] /courses:id/restore
+  restore(req, res, next) {
+    Course.restore({ _id: req.params.id })
+      .then(() => res.redirect('back')) //nếu thành công, sau đó thực thi res...
+      .catch(next); //nếu thất bại, sẽ bắt lỗi....
   }
 }
 module.exports = new SiteController();
