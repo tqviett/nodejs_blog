@@ -61,5 +61,17 @@ class SiteController {
       .then(() => res.redirect('back')) //nếu thành công, sau đó thực thi res...
       .catch(next); //nếu thất bại, sẽ bắt lỗi....
   }
+  //[POST] /courses/handle-form-actions
+  handleFormActions(req, res, next) {
+    switch (req.body.action) {
+      case 'delete':
+        Course.delete({ _id: { $in: req.body.courseIds } })
+          .then(() => res.redirect('back'))
+          .catch(next);
+        break;
+      default:
+        res.json({ message: 'Action not allowed!!!' });
+    }
+  }
 }
 module.exports = new SiteController();
