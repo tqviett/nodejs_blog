@@ -27,15 +27,24 @@
         <option value="">--Chọn hành động--</option>
         <option value="delete">Xóa</option>
       </select>
-      <button class="btn btn-primary btn-sm CheckAllSubmitBtn disabled">Thực hiện</button>
+      <button class="btn btn-primary btn-sm CheckAllSubmitBtn " disabled>Thực hiện</button>
     </div>
     <table class="table mt-4">
       <thead>
         <tr>
           <th scope="col" colspan="2"></th>
-          <th scope="col">TÊN KHÓA HỌC</th>
-          <th scope="col">CẤP ĐỘ</th>
-          <th scope="col" colspan="2">NGÀY TẠO</th>
+          <th scope="col">
+            TÊN KHÓA HỌC
+            {{{sortable 'name' _sort}}}
+          </th>
+          <th scope="col">
+            CẤP ĐỘ
+            {{{sortable 'level' _sort}}}
+          </th>
+          <th scope="col" colspan="2">
+            NGÀY TẠO
+            {{{sortable 'createdAt' _sort}}}
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -119,40 +128,31 @@
     };
   
 
-  //checkbox all click
-  checkboxAll.onchange = function() {
-    var isCheckedAll = checkboxAll.checked;
-    for (var i = 0; i < courseItemCheckboxes.length; i++) {
-      courseItemCheckboxes[i].checked = isCheckedAll;
-      renderCheckAllSubmitBtn()
-    }
-  };
-
-  //courses item checkbox changed
-  for (var i = 0; i < courseItemCheckboxes.length; i++) {
-    courseItemCheckboxes[i].onchange = function() {
-      var isCheckedAll = courseItemCheckboxes.length === document.querySelectorAll('input[name="courseIds[]"]:checked').length;
-      checkboxAll.checked = isCheckedAll;
-      renderCheckAllSubmitBtn()
+    //checkbox all click
+    checkboxAll.onchange = function() {
+      var isCheckedAll = checkboxAll.checked;
+      for (var i = 0; i < courseItemCheckboxes.length; i++) {
+        courseItemCheckboxes[i].checked = isCheckedAll;
+        renderCheckAllSubmitBtn()
+      }
     };
-  }
 
-  //check all submit button
-  CheckAllSubmitBtns.onsubmit = function(e) {
-    var isSubmittable = !CheckAllSubmitBtns.classList.contains('disabled');
-    if (!isSubmittable) {
-      e.preventDefault();
+    //courses item checkbox changed
+    for (var i = 0; i < courseItemCheckboxes.length; i++) {
+      courseItemCheckboxes[i].onchange = function() {
+        var isCheckedAll = courseItemCheckboxes.length === document.querySelectorAll('input[name="courseIds[]"]:checked').length;
+        checkboxAll.checked = isCheckedAll;
+        renderCheckAllSubmitBtn()
+      };
     }
-  };
 
-
-  //Re-render check all submit button
-  function renderCheckAllSubmitBtn() {
+    //Re-render check all submit button
+    function renderCheckAllSubmitBtn() {
     var checkedCount = document.querySelectorAll('input[name="courseIds[]"]:checked').length;
     if (checkedCount > 0) {
-      CheckAllSubmitBtns.classList.remove('disabled');
+      CheckAllSubmitBtns.removeAttribute('disabled'); 
     } else {
-      CheckAllSubmitBtns.classList.add('disabled');
+      CheckAllSubmitBtns.setAttribute('disabled'); 
     }
   }
   }

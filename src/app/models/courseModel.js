@@ -22,6 +22,7 @@ Course.plugin(mongooseDelete, {
   deletedAt: true,
   overrideMethods: 'all',
 });
-mongoose.plugin(slug);
 
+mongoose.set('strictQuery', false);
+mongoose.plugin(slug);
 module.exports = mongoose.model('Course', Course);
