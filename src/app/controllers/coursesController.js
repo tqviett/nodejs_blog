@@ -72,5 +72,23 @@ class SiteController {
         res.json({ message: 'Action not allowed!!!' });
     }
   }
+
+  //[POST] /courses/recycle-form-actions
+  recycleFormActions(req, res, next) {
+    switch (req.body.action) {
+      case 'forceDelete':
+        Course.deleteMany({ _id: { $in: req.body.courseIds } })
+          .then(() => res.redirect('back'))
+          .catch(next);
+        break;
+      case 'forceRestore':
+        Course.restore({ _id: { $in: req.body.courseIds } })
+          .then(() => res.redirect('back'))
+          .catch(next);
+        break;
+      default:
+        res.json({ message: 'Action not allowed!!!' });
+    }
+  }
 }
 module.exports = new SiteController();
