@@ -2,7 +2,9 @@
   <div>
     <h3>KHÓA HỌC ĐÃ XÓA TẠM THỜI</h3>
     <a href="/me/stored/courses">
-    <button type="button" class="btn btn-dark">Danh sách khóa học</button>
+      <button type="button" class="btn btn-dark">
+        <span class="oi oi-list"></span> Danh sách khóa học
+      </button>
     </a>
   </div>
   <div class="mt-2 d-flex align-items-center checkbox-select">
@@ -41,8 +43,8 @@
           <td>{{this.level}}</td>
           <td>{{this.deletedAt}}</td>
           <td>
-            <a href="" class="btn btn-outline-primary btn-restore" data-id="{{this._id}}">Khôi phục</a>
-            <a href="" name="delete-confirm" class="btn btn-outline-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteCourseModel">Xóa vĩnh viễn</a>
+            <a href="" class="btn btn-outline-primary btn-restore" data-id="{{this._id}}"><span class="oi oi-reload"></span></a>
+            <a href="" name="delete-confirm" class="btn btn-outline-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteCourseModel"><span class="oi oi-circle-x"></span></a>
             {{!-- confirm delete --}}
             <!-- Modal -->
             <div class="modal fade" id="deleteCourseModel" tabindex="-1" aria-labelledby="deleteCourseModelLabel" aria-hidden="true">
@@ -69,8 +71,7 @@
 
         <tr>
           <td class="text-center" colspan="5">
-            Thùng rác trống!! 
-            <a href="/me/stored/courses/">Quay lại</a>
+            <b><em>Thùng rác trống!!!</em></b>
           </td>
         </tr>
 

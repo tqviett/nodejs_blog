@@ -1,13 +1,75 @@
 @import 'variables';
-
-.card-course-item {
-  margin-top: 30px;
+//views/partials
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 4px;
 }
 
+//views/home.hbs
+.card-course-item {
+  width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Định dạng hình ảnh */
+.card-img-top {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 0 10px gray;
+}
+
+.card-title-link {
+  text-decoration: none;
+  color: #333;
+}
+/* Định dạng tiêu đề */
+.card-title {
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Định dạng mô tả */
+.card-text {
+  font-size: 14px;
+  max-height: 60px;
+  overflow: hidden;
+}
+
+/* Định dạng nút mua khóa học */
+.btn-primary {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+//End
+
+//views/me
 .checkbox-select .checkbox-select-all-options {
   width: 150px;
   margin: 0 8px;
 }
+.checkbox-select .CheckAllSubmitBtn {
+  width: 100px;
+  margin-bottom: 10px;
+}
 h3 {
   text-align: center;
 }
+
+//End
+
+//views/courses
+.submitBtn {
+  width: fit-content;
+}
+//End

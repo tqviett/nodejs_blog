@@ -1,13 +1,18 @@
 <div class="mt-4">
     <div class="row">
-        <div class="col-lg-3">
-            <button> Study now</button>
+        <div class="col-lg-3 info-course-right">
+            <h2>{{course.name}}</h2>
+            <p>{{course.description}}</p>
+            <h5>Bạn sẽ học được gì?</h5>
+            <li>{{course.description}}</li>
+            <h5>Nội dung khóa học</h5>
+
         </div>
         
-        <div class="col-lg-9">
-            <h2>{{course.name}}</h2>
+        <div class="col-lg-5 info-course-left">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <p>{{course.description}}</p>
+            <button > Study now</button>
+            <p> Trình độ {{course.level}}</p>
         </div>
     </div>
 </div>

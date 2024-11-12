@@ -23,6 +23,10 @@ class MeController {
       )
       .catch(next);
   }
+  // [GET] /me/stored/news
+  newsCourses(req, res, next) {
+    res.json('abc');
+  }
   // [GET] /me/trash/courses
   trashCourses(req, res, next) {
     Course.findWithDeleted({ deleted: true })

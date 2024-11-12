@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class="mt-4 Course">
     <h3>ĐĂNG KHÓA HỌC MỚI</h3>
 
     <form method="POST" action="/courses/store">
@@ -11,7 +11,7 @@
         <textarea type="text" class="form-control" name="description" id="description"></textarea>
       </div>
       <div class="mb-3">
-        <label for="videoId" class="form-label">video ID</label>
+        <label for="videoId" class="form-label">Video ID</label>
         <input type="text" class="form-control" name="videoId" id="videoId">
       </div>
       <div class="mb-3">
@@ -20,6 +20,8 @@
       </div>
       
 
-      <button type="submit" class="btn btn-primary">ĐĂNG</button>
+      <button type="submit" class="btn btn-primary submitBtn">
+          ĐĂNG <span class="oi oi-location"></span>
+      </button>
     </form>
 </div>

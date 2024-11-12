@@ -5,14 +5,14 @@
         {{#if deletedCount}}
         <a href="/me/trash/courses" >
           <button type="button" class="btn btn-secondary">
-            <i class="fas fa-trash-alt"></i> Thùng rác ({{deletedCount}})
+            <i class="fas fa-trash-alt"></i><span class="oi oi-trash"></span> Thùng rác ({{deletedCount}})
           </button>
         </a>
         {{/if}}
       </div>
       <div name="createCourse" class="ms-auto">
         <a href="/courses/create" >
-          <button type="button" class="btn btn-success">Đăng khóa học mới</button>
+          <button type="button" class="btn btn-success">Đăng khóa học</button>
         </a>
       </div>
     </div>
@@ -60,8 +60,8 @@
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href="/courses/{{this.slug}}/edit" class="btn btn-outline-primary">Chỉnh sửa</a>
-            <a href="" name="delete-confirm" class="btn btn-outline-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteCourseModel">Xóa</a>
+            <a href="/courses/{{this.slug}}/edit" class="btn btn-outline-primary"><span class="oi oi-wrench"></span></a>
+            <a href="" name="delete-confirm" class="btn btn-outline-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#deleteCourseModel"><span class="oi oi-circle-x"></span></a>
             {{!-- confirm delete --}}
             <!-- Modal -->
             <div class="modal fade" id="deleteCourseModel" tabindex="-1" aria-labelledby="deleteCourseModelLabel" aria-hidden="true">
@@ -88,9 +88,7 @@
 
         <tr>
           <td class="text-center" colspan="5">
-            Bạn chưa đăng khóa học nào. 
-            <a href="/courses/create"> click</a>
-            để đăng khóa học!
+            <b><em>Bạn chưa đăng khóa học nào!!!</em></b>
           </td>
         </tr>
 
