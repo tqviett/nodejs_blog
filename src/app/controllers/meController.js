@@ -23,9 +23,9 @@ class MeController {
       )
       .catch(next);
   }
-  // [GET] /me/stored/news
+  // [GET] /me/news
   newsCourses(req, res, next) {
-    res.json('abc');
+    res.render('me/news-me');
   }
   // [GET] /me/trash/courses
   trashCourses(req, res, next) {

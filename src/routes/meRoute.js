@@ -5,7 +5,7 @@ const MeController = require('../app/controllers/meController');
 
 // newsController.index
 route.get('/stored/courses', MeController.storedCourses);
-route.get('/stored/news', MeController.newsCourses);
+route.get('/news', MeController.newsCourses);
 route.get('/trash/courses', MeController.trashCourses);
 
 module.exports = route;
